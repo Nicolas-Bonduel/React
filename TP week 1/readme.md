@@ -1,4 +1,4 @@
-Hey! Wassup ~~ :smiley:
+Hey! Wassup ~~
 
 Just trying to get to it, got some free time
 
@@ -18,7 +18,7 @@ __this is also a bold text__
 **some bold *some italic*, sick**  
 *italic, **bold**, you got it*  
 
-~~Nooo, don't strike me!!~~
+~~Nooo, don't strike me!! :tired_face:~~
 
 > quote
 
