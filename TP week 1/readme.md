@@ -34,3 +34,7 @@ while (!succeed)
 ```
 
 [makeareadme.com](https://www.makeareadme.com/)
+
+<p align="center">
+    <img src="https://i.imgflip.com/55lvnp.gif" alt="goodbye">
+</p>
