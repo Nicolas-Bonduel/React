@@ -2,7 +2,7 @@ Hey! Wassup ~~
 
 Just trying to get to it, got some free time
 
-# this is an <h1> equiv
+# this is an \<h1\> equiv
 ## this is an <h2> equiv
 ### this is an <h3> equiv
 #### this is an <h4> equiv
@@ -19,7 +19,7 @@ __this is also a bold text__
 **some bold *some italic*, sick**
 *italic, **bold**, you got it*
 
-~~Nooo, don't strike me!! emoji~~
+~~Nooo, don't strike me!!~~
 
 > quote
 
