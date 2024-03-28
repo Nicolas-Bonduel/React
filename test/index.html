@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+
+    <div id="root">
+
+    </div>
+
+    <script type="text/babel">
+
+        const el =
+            <div style={{'color': 'red', 'textDecoration': 'underline'}} className="">
+                <h1>Hello React!</h1>
+            <div>
+
+        ReactDOM.createRoot(document.querySelector('#root')).render(
+            React.createElement('div', {'style': {'color': 'red'}}, 
+                React.createElement('h1', null, 'Hello folks ~~')
+            )
+            el
+        );
+
+        
+
+    </script>
+
+
+  </body>
+</html>
