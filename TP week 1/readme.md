@@ -1,4 +1,4 @@
-Hey! Wassup ~~
+Hey! Wassup ~~ :smiley:
 
 Just trying to get to it, got some free time
 
@@ -12,8 +12,7 @@ Just trying to get to it, got some free time
 **this is a bold text**  
 __this is also a bold text__
 
-*this is an italic text*  
--this is also an italic text-
+*this is an italic text*
 
 ***both bold an italic, wow***  
 **some bold *some italic*, sick**  
