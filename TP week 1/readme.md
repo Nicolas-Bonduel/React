@@ -29,7 +29,8 @@ __this is also a bold text__
 `code`
 
 ```js
-js code
+while (!succeed)
+    try();
 ```
 
 [makeareadme.com](https://www.makeareadme.com/)
