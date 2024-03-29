@@ -1,0 +1,167 @@
+/* \o/ Common \o/ */
+
+p {
+    font-family: "roboto condensed", Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: white;
+}
+
+img {
+    filter: invert(100%) sepia(0%) saturate(7494%) hue-rotate(303deg) brightness(102%) contrast(101%);
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center {
+    justify-content: center;
+}
+
+.badge {
+    border: 1px solid grey;
+    padding: 3%;
+    border-radius: 10px;
+    background-color: #2a2a36;
+}
+
+.input-invalid {
+    outline: 1px red;
+}
+
+/* \o/ Wrapper \o/ */
+
+#spendings {
+    width: 80%;
+    background-color: #1a1a20;
+}
+
+/* \o/ Add \o/ */
+
+#spendings > .add-todo {
+
+}
+
+/* \o/ Todolist \o/ */
+
+#spendings > .table {
+    width: 95%;
+    padding: 2% 0;
+}
+
+#spendings > .table > .header, #spendings > .table > .row {
+    width: 100%;
+}
+
+#spendings > .table > .header {
+    height: 50px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#spendings > .table > .header > div {
+    height: 100%;
+    border-left: 1px solid white;
+}
+
+#spendings > .table > .header > div:last-child {
+    border-right: 1px solid white;
+}
+
+#spendings > .table > .row {
+    height: 50px;
+    border-bottom: 1px solid grey;
+}
+
+#spendings > .table > .row > div {
+    height: 100%;
+    overflow-y: auto;
+    border-left: 1px solid grey;
+}
+
+#spendings > .table > .row > div:last-child {
+    border-right: 1px solid grey;
+}
+
+#spendings .category {
+    width: 15%;
+    padding: 0 1%;
+}
+#spendings .category > input {
+    max-width: 80%;
+}
+
+#spendings .title {
+    width: 15%;
+    padding: 0 1%;
+}
+#spendings .title > input {
+    max-width: 80%;
+}
+
+#spendings .description {
+    width: 50%;
+    padding: 0 1%;
+}
+#spendings .description > input {
+    max-width: 80%;
+}
+
+#spendings .amount {
+    width: 10%;
+    padding: 0 1%;
+}
+#spendings .amount > input {
+    max-width: 80%;
+}
+
+#spendings .date {
+    width: 10%;
+    padding: 0 1%;
+}
+#spendings .date > input {
+    max-width: 80%;
+}
+
+#spendings .delete {
+    width: 5%;
+    padding: 0 1%;
+}
+
+#spendings .order-asc, #spendings .order-desc {
+    margin-left: 5px;
+}
+#spendings .order-asc:hover, #spendings .order-desc:hover {
+    cursor: pointer;
+}
+
+#spendings .edit-field {
+    margin-left: 5px;
+}
+#spendings .edit-field:hover {
+    cursor: pointer;
+}
+
+#spendings .delete-row:hover {
+    cursor: pointer;
+}
+
+#spendings .add-item {
+    justify-content: center;
+}
+
+#spendings .add-item > img {
+    height: 90%;
+    transition: filter ease .3s;
+}
+#spendings .add-item > img:hover {
+    cursor: pointer;
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(0%);
+}
