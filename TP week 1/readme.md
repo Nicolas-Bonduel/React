@@ -10,7 +10,7 @@
 
 ## Feast your eyes!
 
-![alt text](spendings/public/capture.png "Title")
+![capture](spendings/public/capture.png "capture")
 
 ```js
 while (!succeed)
