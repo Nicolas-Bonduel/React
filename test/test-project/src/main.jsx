@@ -12,8 +12,9 @@ import ReactDOM from 'react-dom/client'
 /* import Input from './day2/Input.jsx' */
 /* import Exo2_2 from './day2/Exo2_2.jsx' */
 /* import Exo3_1 from './day3/Exo3_1.jsx' */
-import Exo3_2 from './day3/Exo3_2.jsx'
-/* import './index.css' */
+/* import Exo3_2 from './day3/Exo3_2.jsx' */
+import Todolist from './day4/Todolist.jsx';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   //  <Input />
   //  <Exo2_2 />
   //  <Exo3_1 />
-    <Exo3_2 />
+  //  <Exo3_2 />
+    <Todolist />
   //</React.StrictMode>,
 )
