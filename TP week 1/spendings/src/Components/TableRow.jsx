@@ -1,12 +1,14 @@
 import { useSpendingsContext } from "../context/useSpendingsContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function TableRow({id, category, title, desc, amount, date, required_fields, editing_field, validation,  special}) {
 
+    // hardcoded, bear with it
     const categories = ["Alimentation", "Logement", "Transport", "Divertissement", "Santé", "Education", "Autres"];
 
     const {state: {items}, dispatch} = useSpendingsContext();
 
+    /* old input values reminder */
     const [old, setOld] = useState({
         category: category,
         title: title,
@@ -14,6 +16,16 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
         amount: amount,
         date: date,
     });
+    /* update old values on change */
+    useEffect(() => {
+        setOld({
+            category: category,
+            title: title,
+            desc: desc,
+            amount: amount,
+            date: date,
+        });
+    }, items);
 
     /**
      * Toggles editing mode for fields
@@ -46,12 +58,13 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                             value = parseFloat(value);
 
                         // very simple validation
-                        if ((!value || (field == "category" && value == "default")) && item.required_fields.includes(field)) {
+                        console.log(value);
+                        if (((!value && value != 0) || (field == "category" && value == "default")) && item.required_fields.includes(field)) {
                             item.validation[field] = 'invalide!';
                         }
                         else {
                             item.validation[field] = '';
-                            if (event.type == 'click' || (field == "category" && event.type == "change") || event.key === "Enter") {
+                            if (event.type == 'click' || (field == "category" && event.type == "change") /*|| (field == "date" && event.type == "change")*/ || event.key === "Enter") {
                                 item[field] = value;
                                 item.editing_field = item.editing_field.replace('|' + field, '');
                             }
@@ -155,7 +168,7 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                                 </>
                                 :
                                 <>
-                                    <p>{date}</p>
+                                    <p>{date.replace(/\-/g,'/')}</p>
                                     <img onClick={ (e) => handleEdit(e, 'date', 'edit') } className="edit-field" alt="edit" src="https://www.svgrepo.com/show/73131/edit-button.svg" height="12px"/>
                                 </>
                         }

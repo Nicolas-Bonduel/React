@@ -1,5 +1,4 @@
 import { useSpendingsContext } from "../context/useSpendingsContext";
-import { useContext } from "react";
 
 function TableHeader() {
 
@@ -10,7 +9,7 @@ function TableHeader() {
             <div className="header flex-row">
 
                 <div className="category flex-row center">
-                    <p>Category</p>
+                    <p>Catégorie</p>
                     {
                         sorting.includes('category') && sorting.includes('descending') ?
                             <img onClick={ () => dispatch({type: 'order_by', payload: {field: 'category', order: 'asc'}}) } className="order-asc" alt="order by asc" src="https://www.svgrepo.com/show/93813/up-arrow.svg" height="12px"/> :
@@ -20,7 +19,7 @@ function TableHeader() {
                 </div>
 
                 <div className="title flex-row center">
-                    <p>Title</p>
+                    <p>Titre</p>
                     {
                         sorting.includes('title') && sorting.includes('descending') ?
                             <img onClick={ () => dispatch({type: 'order_by', payload: {field: 'title', order: 'asc'}}) } className="order-asc" alt="order by asc" src="https://www.svgrepo.com/show/93813/up-arrow.svg" height="12px"/> :
@@ -40,7 +39,7 @@ function TableHeader() {
                 </div>
 
                 <div className="amount flex-row center">
-                    <p>Amount</p>
+                    <p>Montant</p>
                     {
                         sorting.includes('desc') && sorting.includes('descending') ?
                             <img onClick={ () => dispatch({type: 'order_by', payload: {field: 'amount', order: 'asc'}}) } className="order-asc" alt="order by asc" src="https://www.svgrepo.com/show/93813/up-arrow.svg" height="12px"/> :
@@ -60,7 +59,7 @@ function TableHeader() {
                 </div>
                 
                 <div className="delete flex-row center">
-                    <p>Delete</p>
+                    <p>Supp.</p>
                 </div>
 
             </div>

@@ -1,9 +1,28 @@
 /* \o/ Common \o/ */
 
-p {
+:root {
+    color-scheme: dark;
+}
+
+p, h1, h2, h3, table {
     font-family: "roboto condensed", Helvetica, Arial, sans-serif;
     margin: 0;
     color: white;
+}
+
+.disclaimer {
+  color: #FFF;
+  text-align: center;
+  font-family: "lato", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin-bottom: 5%;
+}
+.disclaimer > span {
+  background: -webkit-linear-gradient(white, #38495a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 img {
@@ -41,6 +60,7 @@ img {
 #spendings {
     width: 80%;
     background-color: #1a1a20;
+    border-radius: 10px;
 }
 
 /* \o/ Add \o/ */
@@ -54,6 +74,7 @@ img {
 #spendings > .table {
     width: 95%;
     padding: 2% 0;
+    padding-bottom: 5px;
 }
 
 #spendings > .table > .header, #spendings > .table > .row {
@@ -79,10 +100,14 @@ img {
     height: 50px;
     border-bottom: 1px solid grey;
 }
+#spendings > .table > .row.add-item {
+    border-bottom: none;
+}
 
 #spendings > .table > .row > div {
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     border-left: 1px solid grey;
 }
 
@@ -164,4 +189,40 @@ img {
 #spendings .add-item > img:hover {
     cursor: pointer;
     filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(0%);
+}
+
+#spendings-total {
+    background-color: #1a1a20;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#spendings-total h2 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+}
+
+th {
+    padding: 1rem 2rem;
+    border: 1px solid white;
+}
+
+td {
+    padding: 1rem 2rem;
+    border: 1px solid #808080;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    padding: 1% 2%;
+    background-color: #1a1a20;
+    border-radius: 10px;
+    margin-bottom: 1%;
 }

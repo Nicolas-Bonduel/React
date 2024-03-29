@@ -3,14 +3,14 @@ import { useReducer } from "react";
 const spendingsBaseState = {
     // list of spendings items
     items: [
-        // dummy dataset (didn't implement adding part yet)
+        // dummy dataset (easier to test with an initial dataset)
         {
             id: 1,
             category: "Alimentation",
-            title: "title 1",
-            desc: "desc 1",
-            amount: 1,
-            date: "01/01/2001",
+            title: "Whisky",
+            desc: "L'indispensable ! 666 bouteilles",
+            amount: 13320,
+            date: "2024-03-28",
             required_fields : "category|title|amount|date",
             editing_field: "",
             validation: {},
@@ -18,10 +18,10 @@ const spendingsBaseState = {
         {
             id: 2,
             category: "Alimentation",
-            title: "title 2",
-            desc: "desc 2",
+            title: "Eau(1 bouteille)",
+            desc: "Le saviez-vous? 70% des accidents de voiture sont perpétués par des buveurs d'eau !",
             amount: 2.00,
-            date: "02/01/2001",
+            date: "2001-01-02",
             required_fields : "category|title|amount|date",
             editing_field: "",
             validation: {},
@@ -29,10 +29,43 @@ const spendingsBaseState = {
         {
             id: 3,
             category: "Santé",
-            title: "title 3",
-            desc: "desc 3",
-            amount: 3,
-            date: "03/01/2001",
+            title: "Chloroquine",
+            desc: "L'indispensable après l'indispensable",
+            amount: 300,
+            date: "2024-03-01",
+            required_fields : "category|title|amount|date",
+            editing_field: "",
+            validation: {},
+        },
+        {
+            id: 4,
+            category: "Logement",
+            title: "Chez ma soeur",
+            desc: "Je paie en nature (ch'est le chnord ichi!)",
+            amount: 0,
+            date: "2024-02-02",
+            required_fields : "category|title|amount|date",
+            editing_field: "",
+            validation: {},
+        },
+        {
+            id: 5,
+            category: "Transport",
+            title: "Soucoupe Volante",
+            desc: "à l'énergie solaire!",
+            amount: 0,
+            date: "2024-02-29",
+            required_fields : "category|title|amount|date",
+            editing_field: "",
+            validation: {},
+        },
+        {
+            id: 6,
+            category: "Divertissement",
+            title: "Hold-up",
+            desc: "La vérité.",
+            amount: -1,
+            date: "2024-03-29",
             required_fields : "category|title|amount|date",
             editing_field: "",
             validation: {},
@@ -98,7 +131,9 @@ const spendingsReducer =
                     // order by 'category', 'title' or 'desc' criteria
                     case 'category':
                     case 'title':
-                    case 'desc': console.log("sorting " + action.payload.field + ' ' + action.payload.order);
+                    case 'desc':
+                    case 'amount':
+                    case 'date':
                         for (i = 0; i < (items.length - 1); i++) {
                             eval_ = items[i][action.payload.field] > items[i + 1][action.payload.field];
                             if (eval_) {
@@ -107,7 +142,6 @@ const spendingsReducer =
                             }
                         }
                         break;
-                    // todo amount, date
                     default:
                         return state;
                 }
