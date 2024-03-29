@@ -10,6 +10,8 @@
 
 ## Feast your eyes!
 
+![alt text](photo.png "Title")
+
 ```js
 while (!succeed)
     try();
