@@ -1,11 +1,19 @@
 import { useSpendingsContext } from "../context/useSpendingsContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function TableRow({id, category, title, desc, amount, date, required_fields, editing_field, validation,  special}) {
 
     const categories = ["Alimentation", "Logement", "Transport", "Divertissement", "Santé", "Education", "Autres"];
 
     const {state: {items}, dispatch} = useSpendingsContext();
+
+    const [old, setOld] = useState({
+        category: category,
+        title: title,
+        desc: desc,
+        amount: amount,
+        date: date,
+    });
 
     /**
      * Toggles editing mode for fields
@@ -25,7 +33,6 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                         break;
 
                     case 'save':
-                        console.log('hey');
                         // sanity check
                         if (!item.editing_field.includes(field))
                             return;
@@ -39,14 +46,12 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                             value = parseFloat(value);
 
                         // very simple validation
-                        console.log(value);
-                        if (!value || (field == "category" && value == "default") && item.required_fields.includes(field)) {
-                            console.log('no');
+                        if ((!value || (field == "category" && value == "default")) && item.required_fields.includes(field)) {
                             item.validation[field] = 'invalide!';
                         }
                         else {
                             item.validation[field] = '';
-                            if (event.key === "Enter") {
+                            if (event.type == 'click' || (field == "category" && event.type == "change") || event.key === "Enter") {
                                 item[field] = value;
                                 item.editing_field = item.editing_field.replace('|' + field, '');
                             }
@@ -80,7 +85,7 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                         {
                             editing_field.includes('category') ?
                                 <>
-                                    <select onChange={ (e) => handleEdit(e, 'category', 'save') }>
+                                    <select onChange={ (e) => handleEdit(e, 'category', 'save') } className={ validation['category'] ? "input-invalid" : "" } >
                                         <option default value="default">- Catégories -</option>
                                         {
                                             categories.map( (cat, idx) => <option key={idx} value={cat}>{cat}</option> )
@@ -100,7 +105,7 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                         {
                             editing_field.includes('title') ?
                                 <>
-                                    <input onKeyDown={ (e) => { if (e.key === "Enter") return handleEdit(e, 'title', 'save'); } } type="text" />
+                                    <input onKeyUp={ (e) => { return handleEdit(e, 'title', 'save'); } } type="text" value={old.title} onChange={ (e) => { setOld({...old, title: e.target.value}); } } className={ validation['title'] ? "input-invalid" : "" } />
                                     <img onClick={ (e) => handleEdit(e, 'title', 'save') } className="edit-field" alt="save" src="https://www.svgrepo.com/show/309930/save.svg" height="12px"/>
                                 </>
                                 :
@@ -115,7 +120,7 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                         {
                             editing_field.includes('desc') ?
                                 <>
-                                    <input onKeyDown={ (e) => { if (e.key === "Enter") return handleEdit(e, 'desc', 'save'); } } type="text" />
+                                    <input onKeyUp={ (e) => { return handleEdit(e, 'desc', 'save'); } } type="text" value={old.desc} onChange={ (e) => { setOld({...old, desc: e.target.value}); } } className={ validation['desc'] ? "input-invalid" : "" } />
                                     <img onClick={ (e) => handleEdit(e, 'desc', 'save') } className="edit-field" alt="save" src="https://www.svgrepo.com/show/309930/save.svg" height="12px"/>
                                 </>
                                 :
@@ -130,7 +135,7 @@ function TableRow({id, category, title, desc, amount, date, required_fields, edi
                         {
                             editing_field.includes('amount') ?
                                 <>
-                                    <input onKeyDown={ (e) => { return handleEdit(e, 'amount', 'save'); } } type="number" className={ validation['amount'] ? "input-invalid" : "" }/>
+                                    <input onKeyUp={ (e) => { return handleEdit(e, 'amount', 'save'); } } type="number" value={old.amount} onChange={ (e) => { setOld({...old, amount: e.target.value}); } } className={ validation['amount'] ? "input-invalid" : "" } />
                                     <img onClick={ (e) => handleEdit(e, 'amount', 'save') } className="edit-field" alt="save" src="https://www.svgrepo.com/show/309930/save.svg" height="12px"/>
                                 </>
                                 :

@@ -33,7 +33,7 @@ img {
 }
 
 .input-invalid {
-    outline: 1px red;
+    outline: solid red;
 }
 
 /* \o/ Wrapper \o/ */

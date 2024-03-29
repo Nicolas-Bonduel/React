@@ -5,7 +5,7 @@ import TableRow from "./TableRow";
 
 function Table() {
 
-    const {state: {items, filterBy}, dispatch} = useSpendingsContext();
+    const {state: {items, filterBy}} = useSpendingsContext();
 
     return (
         <>
@@ -13,9 +13,11 @@ function Table() {
                 <div className="table flex-column">
 
                     <TableHeader />
-
-                    {   items.map( (item, idx) => <TableRow key={idx} {...item} /> ) }
-
+                    {
+                        filterBy === ''
+                        ? items.map( (item, idx) => <TableRow key={idx} {...item} /> )
+                        : items.filter(item => item.caterogy === filterBy).map( (item, idx) => <TableRow key={idx} {...item} /> )
+                    }
                     <TableRow special="add"/>
 
                 </div>
