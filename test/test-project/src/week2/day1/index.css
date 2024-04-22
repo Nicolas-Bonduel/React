@@ -1,0 +1,149 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    background-color: black;
+    padding: 1rem;
+}
+
+header .logo {
+    height: 100%;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a.active {
+    color: grey;
+}
+
+header .account {
+    height: 80%;
+}
+
+
+
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+
+#list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+#list-page form.add-article {
+    display: flex;
+    flex-direction: column;
+}
+
+#list-page form.add-article label {
+    margin-bottom: 5px;
+}
+
+#list-page form.add-article p.error {
+    margin: 0;
+    color: red;
+    font-style: italic;
+    font-size: .8rem;
+    margin-left: .5rem;
+}
+
+#list-page form.add-article button[type=submit] {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: .5rem;
+    border-radius: 5px;
+    transition: color, background-color ease .6s;
+}
+#list-page form.add-article button[type=submit]:not(.disabled):hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+#list-page form.add-article button[type=submit].disabled {
+    opacity: .5;
+}
+
+#list-page li {
+    margin-bottom: 10px;
+}
+
+
+#article-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+
+
+
+
+#home form.roll {
+    display: flex;
+    flex-direction: column;
+}
+
+#home form.roll label {
+    margin-bottom: 5px;
+}
+
+#home form.roll p.error {
+    margin: 0;
+    color: red;
+    font-style: italic;
+    font-size: .8rem;
+    margin-left: .5rem;
+}
+
+#home form.roll button[type=submit] {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: .5rem;
+    border-radius: 5px;
+    transition: color, background-color ease .6s;
+}
+#home form.roll button[type=submit]:not(.disabled):hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+#home form.roll button[type=submit].disabled {
+    opacity: .5;
+}
+
+
+#description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}

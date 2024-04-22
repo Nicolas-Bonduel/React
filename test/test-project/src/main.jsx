@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 /* import App from './App.jsx' */
 /* import Test from './Test.jsx' */
 /* import Exo from './Exo.jsx' */
@@ -13,7 +14,14 @@ import ReactDOM from 'react-dom/client'
 /* import Exo2_2 from './day2/Exo2_2.jsx' */
 /* import Exo3_1 from './day3/Exo3_1.jsx' */
 /* import Exo3_2 from './day3/Exo3_2.jsx' */
-import Todolist from './day4/Todolist.jsx';
+/* import Todolist from './day4/Todolist.jsx'; */
+/* import {BrowserRouter as Router} from "react-router-dom";
+import RouterTest from './week2/day1/RouterTest.jsx';
+import ArticleContextProvider from './week2/day1/useArticleContext.jsx'; */
+import {BrowserRouter as Router} from "react-router-dom";
+import DiceGame from './week2/day1/DiceGame.jsx';
+import DiceGameContextProvider from './week2/day1/useDiceGameContext.jsx';
+
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -31,6 +39,26 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   //  <Exo2_2 />
   //  <Exo3_1 />
   //  <Exo3_2 />
-    <Todolist />
+  //  <Todolist />
+  //  <>
+  //    <div id='stars'></div>
+  //    <div id='stars2'></div>
+  //    <div id='stars3'></div>
+  //    <ArticleContextProvider>
+  //      <Router>
+  //        <RouterTest />
+  //      </Router>
+  //    </ArticleContextProvider>
+  //  </>
+    <>
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      <DiceGameContextProvider>
+        <Router>
+          <DiceGame />
+        </Router>
+      </DiceGameContextProvider>
+    </>
   //</React.StrictMode>,
 )
