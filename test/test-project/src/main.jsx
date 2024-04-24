@@ -18,9 +18,16 @@ import ReactDOM from 'react-dom/client'
 /* import {BrowserRouter as Router} from "react-router-dom";
 import RouterTest from './week2/day1/RouterTest.jsx';
 import ArticleContextProvider from './week2/day1/useArticleContext.jsx'; */
-import {BrowserRouter as Router} from "react-router-dom";
+/* import {BrowserRouter as Router} from "react-router-dom";
 import DiceGame from './week2/day1/DiceGame.jsx';
-import DiceGameContextProvider from './week2/day1/useDiceGameContext.jsx';
+import DiceGameContextProvider from './week2/day1/useDiceGameContext.jsx'; */
+/* import ReduxTest from './week2/day2/ReduxTest';
+import {Provider} from 'react-redux';
+import store from './week2/day2/store'; */
+/* import {Provider} from 'react-redux';
+import store from './week2/day2/GameOfThronesFandom/store';
+import {BrowserRouter as Router} from "react-router-dom";
+import GameOfThronesFandom from './week2/day2/GameOfThronesFandom/GameOfThronesFandom'; */
 
 import './index.css';
 
@@ -50,15 +57,30 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   //      </Router>
   //    </ArticleContextProvider>
   //  </>
+  //  <>
+  //    <div id='stars'></div>
+  //    <div id='stars2'></div>
+  //    <div id='stars3'></div>
+  //    <DiceGameContextProvider>
+  //      <Router>
+  //        <DiceGame />
+  //      </Router>
+  //    </DiceGameContextProvider>
+  //  </>
+  //  <>
+  //  <Provider store={store}>
+  //    <ReduxTest />
+  //  </Provider>
+  //  </>
+  //  <>
+  //  <Provider store={store}>
+  //    <Router>
+  //      <GameOfThronesFandom />
+  //    </Router>
+  //  </Provider>
+  //  </>
     <>
-      <div id='stars'></div>
-      <div id='stars2'></div>
-      <div id='stars3'></div>
-      <DiceGameContextProvider>
-        <Router>
-          <DiceGame />
-        </Router>
-      </DiceGameContextProvider>
+      
     </>
   //</React.StrictMode>,
 )
