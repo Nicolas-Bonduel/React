@@ -4,7 +4,8 @@ import { add, addTodo } from "../store/slice/todolistSlice";
 
 function TodolistAdd() {
 
-    const loading = useSelector((state) => state.todolist.loading)
+    const error = useSelector((state) => state.todolist.error);
+    const loading = useSelector((state) => state.todolist.loading);
     const todolist = useSelector((state) => state.todolist.todolist);
     const dispatch = useDispatch();
 
@@ -56,8 +57,12 @@ function TodolistAdd() {
                 }
 
                 <button type="submit" className={(form_desc.trim === '' || form_desc.trim() === '') ? "disabled" : ""}>
-                <span style={loading ? {} : {display: 'none'}} className="loader"></span>Add
+                    <span style={loading ? {} : {display: 'none'}} className="loader"></span>Add
                 </button>
+
+                {
+                    error && <p style={{color: 'red'}}>{error}</p>
+                }
             </form>
         </>
     )
