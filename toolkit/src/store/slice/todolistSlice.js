@@ -67,15 +67,7 @@ export const addTodo = createAsyncThunk(
             body: JSON.stringify({
                 title: title,
                 body: desc,
-<<<<<<< HEAD
-<<<<<<< HEAD
                 userId: '----',
-=======
-                userId: '--------',
->>>>>>> test-branch
-=======
-                userId: '---',
->>>>>>> parent of f910e3a (test)
             })
         })
         return await res.json();
