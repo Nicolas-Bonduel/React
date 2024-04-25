@@ -70,7 +70,7 @@ export const addTodo = createAsyncThunk(
                 userId: -999999999999999999999999999999999999999,
             })
         })
-        return res.data;
+        return await res.json();
     }
 );
 
