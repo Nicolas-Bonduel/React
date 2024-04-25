@@ -46,8 +46,8 @@ const todolistSlice = createSlice({
                 console.log(action);
                 state.todolist.push({
                     id: Date.now(),
-                    title: action.meta.arg.title,
-                    description: action.meta.arg.desc,
+                    title: action.payload.title,
+                    description: action.payload.body,
                     checked: false,
                 });
                 state.loading = false;
@@ -67,7 +67,7 @@ export const addTodo = createAsyncThunk(
             body: JSON.stringify({
                 title: title,
                 body: desc,
-                userId: -999999999999999999999999999999999999999,
+                userId: '---',
             })
         })
         return await res.json();
