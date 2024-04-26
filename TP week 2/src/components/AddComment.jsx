@@ -51,11 +51,11 @@ const AddComment = React.forwardRef((props, ref) => {
 
     return (
         <>
-            <div ref={ref} id="add-comment">
+            <div ref={ref} id="add-post-comment">
 
                 <h3>Add a comment</h3>
 
-                <form className="add-comment" onSubmit={handleSubmit}>
+                <form className="add-post-comment" onSubmit={handleSubmit}>
 
                     <label htmlFor="input-title">Title :</label>
                     <input
@@ -63,6 +63,7 @@ const AddComment = React.forwardRef((props, ref) => {
                         type="text"
                         value={form.title}
                         onChange={handleChange}
+                        style={!form.title_input ? {} : form.title.trim() === '' ? {borderColor: 'red', outline: 'none'} : {borderColor: 'green', outline: 'none'}}
                     />
                     {
                         (form.title_input && form.title.trim() === '') && <p className="error">no you don't</p>
@@ -74,6 +75,7 @@ const AddComment = React.forwardRef((props, ref) => {
                         type="text"
                         value={form.body}
                         onChange={handleChange}
+                        style={!form.body_input ? {} : form.body.trim() === '' ? {borderColor: 'red', outline: 'none'} : {borderColor: 'green', outline: 'none'}}
                     />
                     {
                         (form.body_input && form.body.trim() === '') && <p className="error">no you don't</p>
@@ -85,6 +87,7 @@ const AddComment = React.forwardRef((props, ref) => {
                         type="text"
                         value={form.author}
                         onChange={handleChange}
+                        style={!form.author_input ? {} : !form.author.match(EMAIL_REGEX) ? {borderColor: 'red', outline: 'none'} : {borderColor: 'green', outline: 'none'}}
                     />
                     {
                         (form.author_input && !form.author.match(EMAIL_REGEX)) && <p className="error">not an email</p>

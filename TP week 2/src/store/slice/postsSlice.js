@@ -13,15 +13,10 @@ const postsSlice = createSlice({
         }
     },
     reducers: {
-        /* add(state, action) {
-            state.todolist.push({
-                id: Date.now(),
-                title: action.payload.title,
-                description: action.payload.desc,
-            });
-            state.loading = false;
-            state.error = false;
-        }, */
+        resetComments(state, action) {
+            state.comments.post_id = -1,
+            state.comments.comments = []
+        },
         addComment(state, action) {
             state.comments.comments.push({
                 id: action.payload.id,
@@ -100,7 +95,7 @@ const postsSlice = createSlice({
 export const getPosts = createAsyncThunk(
     'getPosts',
     async () => {
-        await new Promise(res => setTimeout(res, 1000));
+        await new Promise(res => setTimeout(res, 3000));
         const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'Get'
         });
@@ -115,7 +110,7 @@ export const getPosts = createAsyncThunk(
 export const getComments = createAsyncThunk(
     'getComments',
     async (id) => {
-        await new Promise(res => setTimeout(res, 1000));
+        await new Promise(res => setTimeout(res, 3000));
         const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
 
         if (res.status < 200 || res.status >= 300)
@@ -128,7 +123,7 @@ export const getComments = createAsyncThunk(
 export const addPost = createAsyncThunk(
     'addPost',
     async ({title, body}) => {
-        await new Promise(res => setTimeout(res, 1000));
+        await new Promise(res => setTimeout(res, 3000));
         const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             headers: {
@@ -153,4 +148,5 @@ export default postsSlice.reducer;
 
 export const {
     addComment,
+    resetComments,
 } = postsSlice.actions;

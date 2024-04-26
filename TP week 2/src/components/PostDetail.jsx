@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom"
 import Post from "./Post";
 import AddComment from "./AddComment";
-import { getComments } from "../store/slice/postsSlice";
+import { getComments, resetComments } from "../store/slice/postsSlice";
 
 import '../assets/post.css';
 import { useEffect, useRef } from "react";
@@ -15,6 +15,9 @@ function PostDetail() {
     const posts = useSelector(state => state.posts.posts);
     const post = posts.find(p => p.id == id);
 
+    if (!post)
+        return <Navigate to='/' />
+
 
     const comments = useSelector(state => state.posts.comments);
     const loading = useSelector(state => state.posts.loading);
@@ -22,13 +25,11 @@ function PostDetail() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(resetComments());
         dispatch(getComments(post.id));
     }, [])
 
-    if (!post)
-        return <Navigate to='/' />
-
-    const add_comment_ref = useRef(null); 
+    const add_comment_ref = useRef(null);
 
     return (
         <>
@@ -41,22 +42,31 @@ function PostDetail() {
                     <Post post={post} />
 
                     {
-                        comments.comments.length > 0 && (
-                            <div id="post-comments">
+                        !comments.comments.length ?
+                            (
+                                <div className="loader-wrapper">
+                                    <span style={loading ? {} : { display: 'none' }} className="loader"></span>
+                                </div>
+                            )
+                            :
+                            (
+                                <>
+                                    <div id="post-comments">
 
-                                <h3>Commentaires</h3>
+                                        <h3>Commentaires</h3>
 
-                                <ToForm name={'comment'} ref_={add_comment_ref}/>
+                                        <ToForm name={'comment'} ref_={add_comment_ref} />
 
-                                {
-                                    comments.comments.map((comment, idx) => <PostComment key={idx} comment={comment} />)
-                                }
+                                        {
+                                            comments.comments.map((comment, idx) => <PostComment key={idx} comment={comment} />)
+                                        }
 
-                            </div>
-                        )
+                                    </div>
+
+                                    <AddComment ref={add_comment_ref} />
+                                </>
+                            )
                     }
-
-                    <AddComment ref={add_comment_ref} />
 
                 </div>
             </div>

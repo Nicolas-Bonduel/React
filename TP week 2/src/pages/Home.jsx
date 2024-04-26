@@ -27,22 +27,26 @@ function Home() {
       <div id="home">
         <h1>Homepage</h1>
         {
-          posts.length > 0 &&
-          <>
-            <div id="posts-list">
-
-              <h2>Posts List</h2>
-
-              <ToForm name={'post'} ref_={add_post_ref} />
-
-              {
-                posts.map((post, idx) => <Post key={idx} post={post} />)
-              }
-
-              <AddPost ref={add_post_ref}/>
-
+          !posts.length ?
+            <div className="loader-wrapper">
+              <span style={loading ? {} : { display: 'none' }} className="loader"></span>
             </div>
-          </>
+            :
+            <>
+              <div id="posts-list">
+
+                <h2>Posts List</h2>
+
+                <ToForm name={'post'} ref_={add_post_ref} />
+
+                {
+                  posts.map((post, idx) => <Post key={idx} post={post} />)
+                }
+
+                <AddPost ref={add_post_ref} />
+
+              </div>
+            </>
         }
 
 

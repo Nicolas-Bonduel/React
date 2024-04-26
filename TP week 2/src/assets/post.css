@@ -1,3 +1,5 @@
+/*-------------------- POST-LIST ------------------------*/
+
 #posts-list {
     max-width: 80%;
     display: flex;
@@ -12,11 +14,6 @@
     align-items: center;
 }
 
-
-.post div:not(.post):not(.view-details) {
-    border: 1px solid white;
-    border-collapse: collapse;
-}
 
 p {
     margin: 0;
@@ -34,12 +31,18 @@ p {
     display: flex;
     flex-direction: column;
     width: 80%;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .post .wrapper .title {
     width: 100%;
     font-weight: bold;
     text-align: center;
+    border-bottom: 1px solid white;
+    background-color: rgb(42, 42, 54);
 }
 
 .post .wrapper .title p {
@@ -54,6 +57,9 @@ p {
     width: 15%;
     white-space: nowrap;
     text-align: center;
+    font-style: italic;
+    border-right: 1px solid white;
+    background-color: rgb(31, 31, 42);
 }
 
 .post .wrapper .content .author p:first-child {
@@ -62,6 +68,8 @@ p {
 
 .post .wrapper .content .description {
     width: 85%;
+    color: #cccccc;
+    background-image: linear-gradient(to right bottom, rgb(26, 26, 32) 0%, rgb(10, 10, 16) 100%);
 }
 
 .post .view-details {
@@ -73,7 +81,8 @@ p {
 .post .view-details a {
     width: 30%;
     margin-left: 10%;
-    padding: 10%;
+    padding: 7%;
+    border: 2px solid transparent;
 }
 
 .post .view-details a img {
@@ -81,15 +90,14 @@ p {
 }
 
 .post .view-details a:hover {
-    border: 1px solid white;
+    border: 2px solid rgb(42, 42, 54);
     border-radius: 50%;
 }
 
-
-
+/*-------------------- POST-COMMENTS ------------------------*/
 
 #post-comments {
-    max-width: 80%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,22 +112,37 @@ p {
 }
 
 .post-comment {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.post-comment div:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .post-comment div:not(:last-child) {
     border: 1px solid grey;
-    border-collapse: collapse;
+}
+
+.post-comment div:nth-child(2) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .post-comment .title {
     font-weight: bold;
     text-align: center;
+    background-color: rgb(42, 42, 54);
 }
 
-.post-comment .body {}
+.post-comment .body {
+    background-image: linear-gradient(to right bottom, rgb(26, 26, 32) 0%, rgb(10, 10, 16) 100%);
+}
 
 .post-comment .author {
     text-align: right;
@@ -127,7 +150,7 @@ p {
     color: gray;
 }
 
-
+/*-------------------- TO-FORM ------------------------*/
 
 .to-form {
     display: flex;
@@ -144,31 +167,48 @@ p {
 
 .to-form img {
     width: 60px;
-    border: 1px solid transparent;
+    border: 5px solid transparent;
 }
 .to-form img:hover {
     cursor: pointer;
-    border: 1px solid white;
+    border: 5px solid rgb(42, 42, 54);
     border-radius: 50%;
 }
 
+/*------------------ ADD-COMMENT ------------------------*/
 
-
-
-#add-comment form.add-comment {
+#add-post-comment {
+    width: 40vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-#add-comment form.add-comment label {
+
+#add-post-comment form.add-post-comment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50vh;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgb(31, 31, 42);
+    padding: 1rem;
+}
+
+#add-post-comment form.add-post-comment label {
+    font-weight: bold;
+}
+
+#add-post-comment form.add-post-comment label {
     margin-bottom: 5px;
 }
 
-#add-comment form.add-comment label:not(:first-child) {
-    margin-top: 10px;
+#add-post-comment form.add-post-comment label:not(:first-child) {
+    margin-top: 20px;
 }
 
-#add-comment form.add-comment p.error {
+#add-post-comment form.add-post-comment p.error {
     margin: 0;
     color: red;
     font-style: italic;
@@ -176,7 +216,17 @@ p {
     margin-left: .5rem;
 }
 
-#add-comment form.add-comment button[type=submit] {
+#input-title {
+    width: 80%;
+}
+
+#input-author {
+    width: 40%;
+}
+
+#add-post-comment form.add-post-comment button[type=submit] {
+    min-width: 150px;
+    min-height: 50px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -189,12 +239,12 @@ p {
     position: relative;
 }
 
-#add-comment form.add-comment button[type=submit]:not(.disabled):hover {
+#add-post-comment form.add-post-comment button[type=submit]:not(.disabled):hover {
     color: black;
     background-color: white;
     cursor: pointer;
 }
 
-#add-comment form.add-comment button[type=submit].disabled {
+#add-post-comment form.add-post-comment button[type=submit].disabled {
     opacity: .5;
 }

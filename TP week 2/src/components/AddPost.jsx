@@ -5,8 +5,6 @@ import { addPost } from "../store/slice/postsSlice";
 
 const AddPost = React.forwardRef((props, ref) => {
 
-    const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     const error = useSelector((state) => state.posts.error);
     const loading = useSelector((state) => state.posts.loading);
     const dispatch = useDispatch();
@@ -21,7 +19,7 @@ const AddPost = React.forwardRef((props, ref) => {
 
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         setForm({
             ...form,
@@ -48,18 +46,20 @@ const AddPost = React.forwardRef((props, ref) => {
 
     return (
         <>
-            <div ref={ref} id="add-comment">
+            <div ref={ref} id="add-post-comment">
 
-                <h3>Add a comment</h3>
+                <h3>Add a post</h3>
 
-                <form className="add-comment" onSubmit={handleSubmit}>
+                <form className="add-post-comment" onSubmit={handleSubmit}>
 
                     <label htmlFor="input-title">Title :</label>
-                    <input
+                    <textarea
                         id="input-title" name="title"
                         type="text"
+                        rows="2"
                         value={form.title}
                         onChange={handleChange}
+                        style={!form.title_input ? {} : form.title.trim() === '' ? {borderColor: 'red', outline: 'none'} : {borderColor: 'green', outline: 'none'}}
                     />
                     {
                         (form.title_input && form.title.trim() === '') && <p className="error">no you don't</p>
@@ -69,15 +69,20 @@ const AddPost = React.forwardRef((props, ref) => {
                     <textarea
                         id="input-body" name="body"
                         type="text"
+                        rows="4"
                         value={form.body}
                         onChange={handleChange}
+                        style={!form.body_input ? {} : form.body.trim() === '' ? {borderColor: 'red', outline: 'none'} : {borderColor: 'green', outline: 'none'}}
                     />
                     {
                         (form.body_input && form.body.trim() === '') && <p className="error">no you don't</p>
                     }
 
                     <button type="submit" className={(form.title.trim() === '' || form.body.trim() === '') ? "disabled" : ""}>
-                        <span style={loading ? {} : { display: 'none' }} className="loader"></span>Add
+                        <div className="loader-wrapper-btn">
+                            <span style={loading ? {} : { display: 'none' }} className="loader"></span>
+                        </div>
+                        Add
                     </button>
 
                     {
