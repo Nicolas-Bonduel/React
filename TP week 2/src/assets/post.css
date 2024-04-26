@@ -1,0 +1,123 @@
+#posts-list {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-details {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.post div:not(.post):not(.view-details) {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+p {
+    margin: 0;
+    padding: .5rem;
+}
+
+.post {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-left: 20%;
+}
+.post .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.post .wrapper .title {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.post .wrapper .title p {
+    padding: 1rem .5rem;
+}
+
+.post .wrapper .content {
+    display: flex;
+}
+
+.post .wrapper .content .author {
+    width: 15%;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.post .wrapper .content .author p:first-child {
+    padding-bottom: 0;
+}
+
+.post .wrapper .content .description {
+    width: 85%;
+}
+
+.post .view-details {
+    width: 16%;
+    display: flex;
+    align-items: center;
+}
+
+.post .view-details a {
+    width: 30%;
+    margin-left: 10%;
+    padding: 10%;
+}
+
+.post .view-details a img {
+    width: 100%;
+}
+.post .view-details a:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+
+
+
+#post-comments {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#post-comments p {
+    margin: 0;
+}
+
+.post-comment {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.post-comment div:not(:last-child) {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.post-comment .title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.post-comment .body {
+
+}
+
+.post-comment .author {
+    text-align: right;
+    font-style: italic;
+    color: gray;
+}

@@ -27,7 +27,7 @@ header .account {
 
 
 
-#home {
+#home, #details-page {
   display: flex;
   flex-direction: column;
   align-items: center;
