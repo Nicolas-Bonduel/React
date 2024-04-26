@@ -1,10 +1,12 @@
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../store/slice/postsSlice";
 import Post from "../components/Post";
 
 import '../assets/post.css';
+import ToForm from "../components/ToForm";
+import AddPost from "../components/AddPost";
 
 function Home() {
 
@@ -15,15 +17,15 @@ function Home() {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [])
+  }, []);
+
+  const add_post_ref = useRef(null);
 
   return (
     <>
 
       <div id="home">
         <h1>Homepage</h1>
-
-
         {
           posts.length > 0 &&
           <>
@@ -31,9 +33,14 @@ function Home() {
 
               <h2>Posts List</h2>
 
+              <ToForm name={'post'} ref_={add_post_ref} />
+
               {
-                posts.map((post, idx) => <Post key={idx} post={post}/> )
+                posts.map((post, idx) => <Post key={idx} post={post} />)
               }
+
+              <AddPost ref={add_post_ref}/>
+
             </div>
           </>
         }

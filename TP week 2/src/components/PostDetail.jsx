@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import Post from "./Post";
+import AddComment from "./AddComment";
 import { getComments } from "../store/slice/postsSlice";
 
 import '../assets/post.css';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import PostComment from "./PostComment";
+import ToForm from "./ToForm";
 
 function PostDetail() {
 
@@ -23,6 +25,11 @@ function PostDetail() {
         dispatch(getComments(post.id));
     }, [])
 
+    if (!post)
+        return <Navigate to='/' />
+
+    const add_comment_ref = useRef(null); 
+
     return (
         <>
             <div id="details-page">
@@ -39,6 +46,8 @@ function PostDetail() {
 
                                 <h3>Commentaires</h3>
 
+                                <ToForm name={'comment'} ref_={add_comment_ref}/>
+
                                 {
                                     comments.comments.map((comment, idx) => <PostComment key={idx} comment={comment} />)
                                 }
@@ -46,6 +55,8 @@ function PostDetail() {
                             </div>
                         )
                     }
+
+                    <AddComment ref={add_comment_ref} />
 
                 </div>
             </div>

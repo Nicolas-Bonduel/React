@@ -22,6 +22,16 @@ const postsSlice = createSlice({
             state.loading = false;
             state.error = false;
         }, */
+        addComment(state, action) {
+            state.comments.comments.push({
+                id: action.payload.id,
+                title: action.payload.title,
+                body: action.payload.body,
+                author: action.payload.author,
+            });
+            state.loading = false;
+            state.error = false;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(getPosts.pending, (state, action) => {
@@ -52,7 +62,7 @@ const postsSlice = createSlice({
             state.loading = false;
             state.error = action.error.message;
         })
-        .addCase(getComments.fulfilled, (state, action) => { console.log(action.payload);
+        .addCase(getComments.fulfilled, (state, action) => {
             state.comments.post_id = action.payload.length ? action.payload[0].postId : -1,
             state.comments.comments = [];
             action.payload.forEach(comment => {
@@ -66,7 +76,7 @@ const postsSlice = createSlice({
             state.loading = false;
             state.error = false;
         })
-        /* builder.addCase(addPost.pending, (state, action) => {
+        builder.addCase(addPost.pending, (state, action) => {
             state.loading = true;
             state.error = false;
         })
@@ -83,7 +93,7 @@ const postsSlice = createSlice({
             });
             state.loading = false;
             state.error = false;
-        }) */
+        })
     }
 });
 
@@ -117,7 +127,7 @@ export const getComments = createAsyncThunk(
 
 export const addPost = createAsyncThunk(
     'addPost',
-    async ({title, desc}) => {
+    async ({title, body}) => {
         await new Promise(res => setTimeout(res, 1000));
         const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -126,8 +136,8 @@ export const addPost = createAsyncThunk(
             },
             body: JSON.stringify({
                 title: title,
-                body: desc,
-                userId: '---',
+                body: body,
+                userId: 1,
             })
         })
 
@@ -142,5 +152,5 @@ export const addPost = createAsyncThunk(
 export default postsSlice.reducer;
 
 export const {
-    add,
+    addComment,
 } = postsSlice.actions;
