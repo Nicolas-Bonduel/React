@@ -9,7 +9,7 @@
 
 ## I see you x_0
 
-![capture](spendings/public/capture_.png "capture")
+![capture](public/capture_.png "capture")
 
 ```js
 while (!succeed)
