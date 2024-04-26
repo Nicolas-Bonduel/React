@@ -4,12 +4,12 @@ const postsSlice = createSlice({
     name: 'posts',
 
     initialState: {
-        error: '',
-        loading: false,
-        posts: [],
+        error: '',          // error message returned by an api call (fortunately, we only need one since we never make multiple calls)
+        loading: false,     // are we waiting for an api response? (same thing here, only one at a time)
+        posts: [],          // list of posts
         comments: {
-            post_id: -1,
-            comments: []
+            post_id: -1,    // active post_id
+            comments: []    // list of comments for current post_id
         }
     },
     reducers: {

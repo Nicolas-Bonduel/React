@@ -16,12 +16,12 @@ function PostDetail() {
     const post = posts.find(p => p.id == id);
 
     if (!post)
-        return <Navigate to='/' />
+        return <Navigate to='/' /> // get out of here!!!
+        // more seriously, I could get the posts if I wanted to, but I'm too lazy
 
 
     const comments = useSelector(state => state.posts.comments);
     const loading = useSelector(state => state.posts.loading);
-    const error = useSelector(state => state.posts.error);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -43,19 +43,23 @@ function PostDetail() {
 
                     {
                         !comments.comments.length ?
+                            /* loading */
                             (
                                 <div className="loader-wrapper">
                                     <span style={loading ? {} : { display: 'none' }} className="loader"></span>
                                 </div>
                             )
+
                             :
+
+                            /* loaded */
                             (
                                 <>
                                     <div id="post-comments">
 
                                         <h3>Commentaires</h3>
 
-                                        <ToForm name={'comment'} ref_={add_comment_ref} />
+                                        <ToForm name={'comment'} ref_={add_comment_ref} /> {/* click the button to go to form */}
 
                                         {
                                             comments.comments.map((comment, idx) => <PostComment key={idx} comment={comment} />)
@@ -63,7 +67,7 @@ function PostDetail() {
 
                                     </div>
 
-                                    <AddComment ref={add_comment_ref} />
+                                    <AddComment ref={add_comment_ref} /> {/* add a comment */}
                                 </>
                             )
                     }

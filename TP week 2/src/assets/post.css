@@ -1,3 +1,19 @@
+.disclaimer {
+    color: #FFF;
+    text-align: center;
+    font-family: "lato", sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-bottom: 5%;
+  }
+  .disclaimer > span {
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
 /*-------------------- POST-LIST ------------------------*/
 
 #posts-list {
@@ -93,6 +109,7 @@ p {
     border: 2px solid rgb(42, 42, 54);
     border-radius: 50%;
 }
+
 
 /*-------------------- POST-COMMENTS ------------------------*/
 

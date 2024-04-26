@@ -1,8 +1,23 @@
-# React + Vite
+<p align="center">
+    <img src="https://i.kym-cdn.com/entries/icons/original/000/010/683/tumblr_m3zb6i46UI1r3f6fto1_1280.jpg" alt="hello">
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# This is a co-project with following contributors ~~
 
-Currently, two official plugins are available:
+- ***Valette Colin***
+- ***Bonduel Nicolas***
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## I see you x_0
+
+![capture](spendings/public/capture_.png "capture")
+
+```js
+while (!succeed)
+    try();
+```
+
+[makeareadme.com](https://www.makeareadme.com/)
+
+<p align="center">
+    <img src="https://i.imgflip.com/55lvnp.gif" alt="goodbye">
+</p>
