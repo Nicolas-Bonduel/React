@@ -3,6 +3,7 @@ import Minicart from "./Minicart";
 import { NavLink } from "react-router-dom";
 
 import '../assets/header.scss';
+import Theme from "./Theme";
 
 function Header() {
 
@@ -15,6 +16,8 @@ function Header() {
                 </NavLink>
 
                 <Navbar />
+
+                <Theme />
 
                 <Minicart />
             </header>

@@ -1,5 +1,5 @@
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,6 +27,8 @@ header {
     }
 
     & > nav {
+        margin: auto;
+
         & > a {
             margin-right: 1vw;
 
@@ -36,11 +38,26 @@ header {
                 mask: url('./images/home-icon.svg') no-repeat 50% 50%;
                 -webkit-mask-size: cover;
                 mask-size: cover;
-                background-color: blue;
+                background-color: #646cff;
                 display: inline-block;
                 width: 16px;
                 height: 16px;
             }
+        }
+    }
+
+    .theme-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 5%;
+
+        & > .theme-icon {
+            width: 40px;
+        }
+
+        &:hover {
+            cursor: pointer;
         }
     }
 
@@ -79,9 +96,32 @@ header {
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        background-color: white;
         box-shadow: 0 15px 15px #0000004c;
         transition: right .6s ease-in-out;
+
+        & > .close-button {
+            width: 13%;
+            padding: 2%;
+            margin: 5%;
+            align-self: flex-end;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                background-color: #cccccc33;
+            }
+        }
+
+        & > .content {
+            margin: 0 7.5%;
+            margin-bottom: 10%;
+
+            & > .cart-is-empty {
+                text-align: center;
+                font-weight: bold;
+                color: #ff9311;
+            }
+        }
     }
 }
 .theme-dark header {
@@ -92,11 +132,30 @@ header {
         content: url('./images/logo_white.png');
     }
 
+    .theme-option {
+
+        & > span {
+            color: white;
+        }
+
+        & > .theme-icon {
+            content: url('./images/theme-icon_white.png');
+        }
+    }
+
     #minicart-btn {
         border: 1px solid white;
     
         & > img {
             content: url('./images/cart-icon_white.png');
+        }
+    }
+
+    #minicart {
+        box-shadow: 0 15px 15px #ffffff4c;
+
+        & > .close-button {
+            color: white;
         }
     }
 }

@@ -1,14 +1,66 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-
-#root.theme-dark {
-  background-color: #1a1a20;
+.loader-wrapper {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body.theme-dark {
-  background-color: #1a1a20;
+.loader-wrapper-btn {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.loader {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border: 3px dotted #666;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #FF3D00;
+  border-style: solid solid dotted;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+} 
