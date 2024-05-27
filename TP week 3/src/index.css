@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+body:has(.theme-dark) {
+  background-color: #1a1a20;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #646cff;
+  text-decoration: inherit;
+  transition: color .2s linear, font-weight .2s linear;
+}
+a:hover, a.current {
+  color: #ff9311;
+  font-weight: bold;
+}
+
+a.home-link:hover::before {
+  background-color: #ff9311;
+}
+
+button {
+  cursor: pointer;
+}
+

@@ -1,0 +1,102 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 1px 5px 15px #0000003c;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > *:first-child {
+        margin-left: 15px;
+    }
+
+    & > #minicart-btn {
+        margin-right: 3%;
+    }
+
+    & > .logo-link {
+        width: 6%;
+
+        & > .logo {
+            width: 100%;
+        }
+    }
+
+    & > nav {
+        & > a {
+            margin-right: 1vw;
+
+            &.home-link::before {
+                content: "";
+                -webkit-mask: url('./images/home-icon.svg') no-repeat 50% 50%;
+                mask: url('./images/home-icon.svg') no-repeat 50% 50%;
+                -webkit-mask-size: cover;
+                mask-size: cover;
+                background-color: blue;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    #minicart-btn {
+        position: relative;
+        width: 4%;
+        padding: .75%;
+        border: 1px solid gray;
+        background-color: transparent;
+    
+        & > img {
+            width: 100%;
+        }
+    
+        & > .cart-count {
+            position: absolute;
+            top: -.5vw;
+            right: -.5vw;
+            font-size: 1vw;
+            width: 1.707vw;
+            height: 1.707vw;
+            line-height: 1.707vw;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background-color: #cb4335;
+            border-radius: 50%;
+        }
+    }
+
+    #minicart { right: -25%;
+        position: absolute;
+        top: 100%;
+        width: 25%;
+        max-height: calc(100vh - 100%);
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 15px 15px #0000004c;
+        transition: right .6s ease-in-out;
+    }
+}
+.theme-dark header {
+    background-color: rgb(42, 42, 54);
+    box-shadow: 1px 5px 15px #ffffff3c;
+
+    & > .logo-link > .logo {
+        content: url('./images/logo_white.png');
+    }
+
+    #minicart-btn {
+        border: 1px solid white;
+    
+        & > img {
+            content: url('./images/cart-icon_white.png');
+        }
+    }
+}
