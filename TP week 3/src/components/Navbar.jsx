@@ -7,6 +7,7 @@ function Navbar() {
             <nav>
                 <NavLink to={'/'} className="home-link">Home</NavLink>
                 <NavLink to={'/cart'}>Test</NavLink>
+                <NavLink to={'/user'}>user</NavLink>
             </nav>
         </>
     )

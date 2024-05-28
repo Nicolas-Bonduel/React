@@ -3,6 +3,7 @@ import { getItems } from "../store/slice/itemsSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import '../assets/home.scss';
+import '../assets/products.scss';
 import { useState } from "react";
 import ItemsByCategory from "../components/ItemsByCategory";
 
@@ -13,10 +14,6 @@ function Home() {
     const dispatch = useDispatch();
 
     const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        dispatch(getItems());
-    }, []);
 
     useEffect(() => {
         let categories_ = [];
@@ -32,7 +29,7 @@ function Home() {
 
             <div id="home">
                 <div className="disclaimer">
-                    <span>I see you x_O</span>
+                    <span>Send nudes ~~</span>
                 </div>
                 {
                     !items.length ?

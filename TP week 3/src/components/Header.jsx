@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import '../assets/header.scss';
 import Theme from "./Theme";
 
+import header_logo from '../assets/images/logo_black.png';
+
 function Header() {
 
 
@@ -12,7 +14,7 @@ function Header() {
         <>
             <header>
                 <NavLink to={'/'} className="logo-link">
-                    <img className="logo" alt="header logo" src="./images/logo_black.png" />
+                    <img className="logo" alt="header logo" src={header_logo} />
                 </NavLink>
 
                 <Navbar />

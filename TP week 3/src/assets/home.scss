@@ -10,37 +10,5 @@
 
     #content {
         width: 90%;
-
-        .category-header {
-            width: 100%;
-            font-style: italic;
-            color: #ff9312;
-            border-bottom: 2px solid #ff9312;
-        }
-
-        .items-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-
-            .item-card {
-                width: 23%;
-                margin: 2% 1%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                box-shadow: 0 0 15px #0000001c;
-            }
-        }
-    }
-}
-.theme-dark #home {
-    #content {
-
-        .items-wrapper {
-
-            .item-card {
-                box-shadow: 0 0 15px #ffffff1c;
-            }
-        }
     }
 }

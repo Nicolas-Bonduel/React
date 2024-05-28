@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 
+import theme_icon from '../assets/images/theme-icon_dark.png';
+
 function Theme() {
 
     const [darkTheme, setDarkTheme] = useState(false);
@@ -16,7 +18,7 @@ function Theme() {
         <>
             <div className="theme-option" onClick={() => setDarkTheme(!darkTheme)}>
                 <span>Theme</span>
-                <img className="theme-icon" alt="theme option" src="./images/theme-icon_dark.png" />
+                <img className="theme-icon" alt="theme option" src={theme_icon} />
             </div>
         </>
     )

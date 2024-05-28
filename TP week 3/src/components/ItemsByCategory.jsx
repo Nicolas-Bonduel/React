@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import ItemCard from "./ItemCard";
 
-function ItemsByCategory({category}) {
+function ItemsByCategory({category, ignore = -1}) {
 
     const items = useSelector(state => state.items.items);
     const itemsByCategory = items.filter(item => item.category === category);
@@ -10,7 +10,7 @@ function ItemsByCategory({category}) {
         <>
             <div className="items-wrapper">
                 {
-                    itemsByCategory.map((item, idx) => <ItemCard key={idx} item={item} />)
+                    itemsByCategory.map((item, idx) => (ignore === -1 || item.id != ignore) && <ItemCard key={idx} item={item} />)
                 }
             </div>
         </>
