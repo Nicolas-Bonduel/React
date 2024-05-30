@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getItems } from "../store/slice/itemsSlice";
+import { getItems } from "../store/slice/storeSlice";
 import { useDispatch } from "react-redux";
 
 

@@ -4,10 +4,9 @@ import { addAsync } from "../store/slice/cartSlice";
 
 import '../assets/product.scss';
 
-function ProductItem({ id }) {
+function ProductItem({ item }) {
 
-    const items = useSelector((state) => state.items.items);
-    const item = items.find(i => i.id == id);
+    const items = useSelector((state) => state.store.items);
 
     const [qty, setQty] = useState(1);
     const [validQty, setValidQty] = useState(true);
@@ -17,6 +16,8 @@ function ProductItem({ id }) {
         setValidQty(true);
 
         if (!parseInt(qty))
+            setValidQty(false);
+        if (Number(qty) != qty || Number(qty) % 1)
             setValidQty(false);
         if (parseInt(qty) < parseInt(qtyRef.current.min))
             setValidQty(false);
@@ -58,9 +59,9 @@ function ProductItem({ id }) {
                     <span className="price">{item.price.toFixed(2).toString().replace('.', ',')} $</span>
                     <p className="qty-label">Quantité :</p>
                     <div className={validQty ? "qty-box" : "qty-box is-invalid"}>
-                        <span className="qty-decrease" onClick={() => handleQty(qty - 1)}>-</span>
+                        <span className="qty-decrease" onClick={() => handleQty(parseInt(qty) - 1)}>-</span>
                         <input ref={qtyRef} className="qty" type="number" min="1" max="99" value={qty} onChange={e => handleQty(e.target.value)} />
-                        <span className="qty-increase" onClick={() => handleQty(qty + 1)}>+</span>
+                        <span className="qty-increase" onClick={() => handleQty(parseInt(qty) + 1)}>+</span>
                     </div>
                     <button className={validQty && !loading ? "add-to-cart-btn" : "add-to-cart-btn disabled"} onClick={handleAddCart}>
                         Add to cart

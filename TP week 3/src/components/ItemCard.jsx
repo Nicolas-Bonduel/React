@@ -14,6 +14,8 @@ function ItemCard({ item }) {
 
         if (!parseInt(qty))
             setValidQty(false);
+        if (Number(qty) != qty || Number(qty) % 1)
+            setValidQty(false);
         if (parseInt(qty) < parseInt(qtyRef.current.min))
             setValidQty(false);
         if (parseInt(qty) > parseInt(qtyRef.current.max))
@@ -46,9 +48,9 @@ function ItemCard({ item }) {
                     <p className="description">{item.description}</p>
                     <span className="price">{item.price.toFixed(2).toString().replace('.', ',')} $</span>
                     <div className={validQty ? "qty-box" : "qty-box is-invalid"}>
-                        <span className="qty-decrease" onClick={() => handleQty(qty-1)}>-</span>
+                        <span className="qty-decrease" onClick={() => handleQty(parseInt(qty)-1)}>-</span>
                         <input ref={qtyRef} className="qty" type="number" min="1" max="99" value={qty} onChange={e => handleQty(e.target.value)} />
-                        <span className="qty-increase" onClick={() => handleQty(qty+1)}>+</span>
+                        <span className="qty-increase" onClick={() => handleQty(parseInt(qty)+1)}>+</span>
                     </div>
                     <button className={validQty && !loading ? "add-to-cart-btn" : "add-to-cart-btn disabled"} onClick={handleAddCart}>
                         Add to cart

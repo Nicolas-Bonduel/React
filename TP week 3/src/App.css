@@ -36,6 +36,11 @@ a.home-link.active::before, a.home-link:hover::before {
   align-items: center;
 }
 
+#root > .loader-wrapper {
+  margin-top: 13%;
+  margin-left: 45%;
+}
+
 .loader-wrapper-btn {
   width: 100%;
   height: 100%;

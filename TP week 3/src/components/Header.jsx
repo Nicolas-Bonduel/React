@@ -6,6 +6,7 @@ import '../assets/header.scss';
 import Theme from "./Theme";
 
 import header_logo from '../assets/images/logo_black.png';
+import AccountIcon from "./AccountIcon";
 
 function Header() {
 
@@ -20,6 +21,8 @@ function Header() {
                 <Navbar />
 
                 <Theme />
+
+                <AccountIcon />
 
                 <Minicart />
             </header>

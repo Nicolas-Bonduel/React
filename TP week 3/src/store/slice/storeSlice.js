@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const itemsSlice = createSlice({
-    name: 'items',
+const storeSlice = createSlice({
+    name: 'store',
 
     initialState: {
         loading: false,
@@ -44,8 +44,8 @@ export const getItems = createAsyncThunk(
 );
 
 
-export default itemsSlice.reducer;
+export default storeSlice.reducer;
 
 /*export const {
     
-} = itemsSlice.actions;*/
+} = storeSlice.actions;*/

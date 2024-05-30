@@ -63,6 +63,27 @@ header {
         }
     }
 
+    .account {
+        display: flex;
+        align-items: center;
+        margin-right: 3%;
+        gap: 10%;
+
+        & > img {
+            width: 40px;
+        }
+
+        & > span {
+            white-space: nowrap;
+            font-weight: bold;
+        }
+    }
+
+    .account-login {
+        font-weight: bold;
+        margin-right: 3%;
+    }
+
     #minicart-btn {
         position: relative;
         width: 3%;
@@ -116,10 +137,17 @@ header {
         }
 
         & > .content {
+            position: relative;
             margin: 0 7.5%;
             margin-bottom: 10%;
             display: flex;
             flex-direction: column;
+
+            & > .loader-wrapper {
+                position: absolute;
+                align-self: center;
+                margin-top: 5%;
+            }
 
             & > .cart-is-empty {
                 text-align: center;
@@ -192,7 +220,7 @@ header {
                         transition: background-color linear .2s;
 
                         &:hover {
-                            background-color: #444444;
+                            background-color: #ddd;
                         }
                     }
                 }
@@ -215,7 +243,7 @@ header {
                 color: #f3a649;
                 font-weight: bold;
                 font-size: 1.2rem;
-                padding: .7rem 1.5rem;
+                padding: .7rem 3rem;
                 border: 1px solid #f3a649;
                 border-radius: 50px;
                 background-color: transparent;

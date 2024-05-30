@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 
 function ItemsByCategory({category, ignore = -1}) {
 
-    const items = useSelector(state => state.items.items);
+    const items = useSelector(state => state.store.items);
     const itemsByCategory = items.filter(item => item.category === category);
 
     return (
