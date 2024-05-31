@@ -15,7 +15,8 @@ function Minicart() {
     const cartItems = useSelector((state) => state.cart.items);                             // to display cart items (duh)
     const store_items = useSelector((state) => state.store.items);                          // to retrieve missing properties in cart item
 
-    const cartItems_amount = cartItems.reduce((total, item) => total + item.qty, 0);        // to display amount of products in cart
+    const cartItems_amount = cartItems                                                      // to display amount of products in cart
+    .reduce((total, item) => parseInt(total + item.qty), 0);
 
     const subtotal = cartItems.reduce((total, item) => {                                    // to display subtotal
         return total + ((store_items.find(i => i.id == item.id)?.price ?? 0) * item.qty);

@@ -14,7 +14,8 @@ const Cart = () => {
     const cartItems = useSelector((state) => state.cart.items);                             // to display cart items (duh)
     const store_items = useSelector((state) => state.store.items);                          // to find missing properties in cart items
 
-    const cartItems_amount = cartItems.reduce((total, item) => total + item.qty, 0);        // to display amount of products in cart
+    const cartItems_amount = cartItems                                                      // to display amount of products in cart
+        .reduce((total, item) => parseInt(total + item.qty), 0);
     const subtotal = cartItems.reduce((total, item) => {                                    // to display total price
         return total + ((store_items.find(i => i.id == item.id)?.price ?? 0) * item.qty);
     }, 0);
@@ -31,7 +32,7 @@ const Cart = () => {
     return (
         <div className="cart">
 
-            { user && <h2>Hi {user.firstname ?? ''} {user.lastname ?? ''}!</h2> }
+            {user && <h2>Hi {user.firstname ?? ''} {user.lastname ?? ''}!</h2>}
 
             {
                 cartItems.length === 0 ?
@@ -41,7 +42,7 @@ const Cart = () => {
                         {/* TODO you can do better than this */}
                         <p>Votre panier est vide</p>
                     </>
-                    
+
                     :
 
                     /* cart not empty */
@@ -50,7 +51,7 @@ const Cart = () => {
                               so you might have to wait if you reload this page or access it directly)
                             we could have displayed only this in this case, but we kinda weirdly decided to still display
                               everything with placeholders when values are not yet available, and it actually doesn't look too bad imo*/}
-                        { !store_items.length && <div className="loader-wrapper"><span className="loader"></span></div> }
+                        {!store_items.length && <div className="loader-wrapper"><span className="loader"></span></div>}
 
                         {/* cart header & actions */}
                         <div className="border">
@@ -60,7 +61,7 @@ const Cart = () => {
 
                         {/* cart content */}
                         <ul>
-                            { cartItems.map((item, idx) => <CartItem key={idx} item={item} />) }
+                            {cartItems.map((item, idx) => <CartItem key={idx} item={item} />)}
                         </ul>
 
                         {/* total */}

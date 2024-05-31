@@ -18,7 +18,7 @@ function Product() {
   return (
     <>
       {
-        /*!items.length*/true ?
+        !items.length ?
 
           /* loading (yeeah, it might have failed but you'll never know coz we're too lazy ~~) */
           <div className="loader-wrapper">
