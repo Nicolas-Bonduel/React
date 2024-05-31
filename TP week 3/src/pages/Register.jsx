@@ -6,15 +6,18 @@ import { AuthContext } from "../context/AuthProvider";
 
 const Register = () => {
 
-    const { user, register, loading, errorMsg, setErrorMsg } = useContext(AuthContext);
-    if (user)
-        return <Navigate to='/' />
-
+    // X_o
     const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    const form_initial_state = {
+    const { user, register, loading, errorMsg, setErrorMsg } = useContext(AuthContext); // to get user & dispatch user actions
+
+    /* sanity check */
+    if (user)
+        return <Navigate to='/' /> /* get out of here you dirty logged user! */
+
+    const form_initial_state = {                                                        // register form initial input values
         username: '',
-        username_input: false,
+        username_input: false,  // ('<name>_input == false' means unchanged yet)
         password: '',
         password_input: false,
         firstname: '',
@@ -24,9 +27,11 @@ const Register = () => {
         email: '',
         email_input: false,
     }
-    const [formData, setFormData] = useState(form_initial_state);
-    const [formValid, setFormValid] = useState(false);
+    const [formData, setFormData] = useState(form_initial_state);                       // register form input values
+    const [formValid, setFormValid] = useState(false);                                  // register form valid state
 
+
+    /* register form inputs control */
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -35,17 +40,23 @@ const Register = () => {
             [name]: value,
             [name + '_input']: true,
         });
-
     }
 
-    
+    /* on form data change ==> assess form valid state
+         (I would have preferred to put this in 'handleChange', but it doesn't work..) */
+    useEffect(() => {
+        setFormValid( ! (formData.username.trim() === '' || formData.password.trim() === '' || formData.firstname.trim() === '' || formData.lastname.trim() === '' || !formData.email.match(EMAIL_REGEX)) );
+    }, [formData])
 
+    /* register (on form submit) */
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        /* sanity check */
         if (!formValid)
             return;
 
+        /* register */
         await register({
             username: formData.username,
             password: formData.password,
@@ -54,6 +65,7 @@ const Register = () => {
             email: formData.email,
         });
 
+        /* reset password (will not be reached unless register failed) */
         setFormData({
             ...formData,
             password: '',
@@ -61,10 +73,8 @@ const Register = () => {
         });
     };
 
-    useEffect(() => {
-        setFormValid( ! (formData.username.trim() === '' || formData.password.trim() === '' || formData.firstname.trim() === '' || formData.lastname.trim() === '' || !formData.email.match(EMAIL_REGEX)) );
-    }, [formData])
-
+    
+    /* on load ==> reset error message (avoids persisting message accross navigation) */
     useEffect(() => {
         setErrorMsg('');
     }, []);
@@ -73,9 +83,12 @@ const Register = () => {
     return (
         <>
             <form id="register" onSubmit={handleSubmit}>
+
+                {/* header */}
                 <h2 className="header">Register</h2>
 
 
+                {/* login inputs */}
                 <h3 className="subheader">Login Information</h3>
 
                 <input
@@ -103,6 +116,7 @@ const Register = () => {
                 }
 
 
+                {/* account details inputs */}
                 <h3 className="subheader">Personal Information</h3>
 
                 <input
@@ -142,6 +156,7 @@ const Register = () => {
                 }
 
 
+                {/* CTA */}
                 <button type="submit" className={(loading || !formValid) ? "disabled" : ""}>
                     <div className="loader-wrapper-btn">
                         <span style={loading ? {} : { display: 'none' }} className="loader"></span>
@@ -151,8 +166,10 @@ const Register = () => {
                 {
                     (errorMsg !== '') && <p className="error">{errorMsg}</p>
                 }
+
             </form>
         </>
     );
 };
+
 export default Register;

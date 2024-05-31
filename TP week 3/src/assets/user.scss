@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 #user-page {
     width: 35%;
     margin: 0 32.5%;
@@ -15,6 +16,7 @@
         white-space: nowrap;
         color: #444;
         gap: 5%;
+        font-family: 'Roboto Slab', sans-serif;
     }
 
     .logout {
@@ -100,13 +102,13 @@
         }
 
         &.ignore {
-            background-color: 	#fbfcd5;
+            background-color: #fbfcd5;
             color: #fd9219;
         }
 
         &.error {
             background-color: #ff9090;
-            color:	#da1334;
+            color: #da1334;
         }
     }
 }
@@ -124,7 +126,7 @@
     }
 
     .button-save {
-        
+
         &.disabled {
             opacity: .7;
         }

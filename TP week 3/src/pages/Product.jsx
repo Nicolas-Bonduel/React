@@ -36,7 +36,8 @@ function Product() {
 
             </div>
 
-            {/* display related products (i.e.: products in same category, except this one obviously) */}
+            {/* display related products (i.e.: products in same category, except this one obviously)
+                  the product alone in a page kinda stressed me out, so I added a related products section to fill the space */}
             <div className="related-products">
 
               <h2 className="category-header">You might also like</h2>

@@ -15,6 +15,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 
 import './App.css'
+import Test from './components/test/Test.jsx'
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     /* restore logged user (if any) */
     let logged_user = localStorage.getItem('logged_user');
     if (logged_user)
-      restore_login(logged_user);
+      restore_login(JSON.parse(logged_user));
 
     /* retrieve store items */
     dispatch(getItems());
@@ -65,6 +66,8 @@ function App() {
         <Route path={'/user'} element={<User />} />
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
+
+        <Route path={'/test'} element={<Test />} />
 
         <Route path={'*'} element={<div>Not found!</div>} /> {/* too lazy to style it.. */}
       </Routes>

@@ -16,7 +16,7 @@ const Cart = () => {
 
     const cartItems_amount = cartItems.reduce((total, item) => total + item.qty, 0);        // to display amount of products in cart
     const subtotal = cartItems.reduce((total, item) => {                                    // to display total price
-        return total + (store_items.find(i => i.id == item.id)?.price ?? 0 * item.qty);
+        return total + ((store_items.find(i => i.id == item.id)?.price ?? 0) * item.qty);
     }, 0);
 
     const dispatch = useDispatch();                                                         // to dispatch cart actions
@@ -45,7 +45,7 @@ const Cart = () => {
                     :
 
                     /* cart not empty */
-                    <>
+                    < div className="split">
                         {/* cart might not be empty but store products might! (store products take some time to retrieve
                               so you might have to wait if you reload this page or access it directly)
                             we could have displayed only this in this case, but we kinda weirdly decided to still display
@@ -67,7 +67,7 @@ const Cart = () => {
                         <div className="subtotal">
                             <p>Total: ${subtotal.toFixed(2).toString().replace('.', ',')}</p>
                         </div>
-                    </>
+                    </ div >
             }
 
         </div>

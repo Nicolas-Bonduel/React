@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 input[type='number'] {
     -moz-appearance:textfield;
 }
@@ -7,7 +8,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-
+h2{
+    font-family: 'Roboto Slab',sans-serif;
+}
 .category-header {
     width: 100%;
     font-style: italic;

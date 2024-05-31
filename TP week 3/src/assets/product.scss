@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
 input[type='number'] {
     -moz-appearance:textfield;
 }
@@ -6,7 +8,12 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
+h2{
+  font-family: "Roboto Slab", serif !important;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
 
 #product-item {
     width: 80%;
@@ -21,6 +28,7 @@ input::-webkit-inner-spin-button {
         box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2980392157);
 
         .column {
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
