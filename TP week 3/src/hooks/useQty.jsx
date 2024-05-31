@@ -4,9 +4,9 @@ import { useState } from "react";
 /**
  * Hook for the QtyBox component (see QtyBox for details)
  */
-function useQty() {
+function useQty(qty_ini = 1) {
 
-    const [qty, setQty] = useState(1);                  // to control quantity input (for displaying validation errors)
+    const [qty, setQty] = useState(qty_ini);            // to control quantity input (for displaying validation errors)
     const [validQty, setValidQty] = useState(true);     // is input quantity valid (shortcut for avoiding all assessments)
     
 

@@ -69,6 +69,9 @@ const User = () => {
         else {
             notifier_ref.current.style.opacity = 0; // (there's a .8s css transition on this)
             let timeoutId_ = setTimeout(() => {
+                if (!notifier_ref.current) // avoids trigerring an error when navigated to another page (since element won't be accessible anymore)
+                    return; 
+
                 setLastEditAccountMsg(editAccountMsg); // updates message (empties it, actually)
                 notifier_ref.current.style.opacity = 1; // reset style
             }, 1000);

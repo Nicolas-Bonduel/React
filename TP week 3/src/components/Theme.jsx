@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useContext } from "react"
+import { ThemeContext } from "../context/ThemeProvider"
 
 import theme_icon from '../assets/images/theme-icon_dark.png'
 
@@ -8,21 +9,12 @@ import theme_icon from '../assets/images/theme-icon_dark.png'
  */
 function Theme() {
 
-    const [darkTheme, setDarkTheme] = useState(false);  // to manage theme (duh)
-
-
-    /* on theme change ==> change theme (no way!) */
-    useEffect(() => {
-        const root = document.querySelector('#root');
-        darkTheme ?
-            root?.classList.add('theme-dark') :
-            root?.classList.remove('theme-dark');
-    }, [darkTheme]);
+    const { toggleTheme } = useContext(ThemeContext);
 
 
     return (
         <>
-            <div className="theme-option" onClick={() => setDarkTheme(!darkTheme)}>
+            <div className="theme-option" onClick={toggleTheme}>
 
                 <span>Theme</span>
 

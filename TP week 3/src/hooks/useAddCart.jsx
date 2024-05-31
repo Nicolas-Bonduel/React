@@ -8,7 +8,7 @@ import { addAsync } from "../store/slice/cartSlice";
 function useAddCart(item, qty, validQty) {
 
     const loadingFor = useSelector((state) => state.cart.loadingFor);   // to display loader
-    const loading = loadingFor != -1;                                   // to display loader
+    const loading = loadingFor == item.id;                              // to display loader
 
     const dispatch = useDispatch();
 

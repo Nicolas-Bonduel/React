@@ -36,7 +36,7 @@ a.home-link.active::before, a.home-link:hover::before {
   align-items: center;
 }
 
-#root > .loader-wrapper {
+#main > .loader-wrapper {
   margin-top: 13%;
   margin-left: 45%;
 }

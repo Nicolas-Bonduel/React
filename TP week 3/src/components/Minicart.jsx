@@ -66,7 +66,7 @@ function Minicart() {
                                     Subtotal : {subtotal.toFixed(2).toString().replace('.', ',')} $
                                 </span>
 
-                                <button className="view-cart-btn" onClick={() => navigate('cart')}>
+                                <button className="view-cart-btn" onClick={() => { navigate('cart'); setMinicartVisible(false)}}>
                                     My cart
                                 </button>
                             </>

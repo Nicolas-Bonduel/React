@@ -45,7 +45,7 @@ const cartSlice = createSlice({
             const { id, qty } = action.payload;
             const item = state.items.find(item => item.id === id);
             if (item) {
-                item.qty = qty;
+                item.qty = parseInt(qty);
             }
 
             // store cart

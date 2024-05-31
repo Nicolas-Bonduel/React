@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import bcrypt from 'bcryptjs';
+
 
 export const AuthContext = createContext();
 
@@ -34,9 +36,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     setErrorMsg('');
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     let user = {
       username: username,
-      password: password,
+      password: hashedPassword,
       firstname: firstname,
       lastname: lastname,
       email: email
@@ -120,6 +124,8 @@ const AuthProvider = ({ children }) => {
 
     await new Promise(res => setTimeout(res, 1000)); // enjoy the loader!
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     /* logging-in from server */
     if (import.meta.env.VITE_LOGIN_FROM_SERVER) {
 
@@ -131,7 +137,7 @@ const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify({
           username: username,
-          password: password,
+          password: hashedPassword,
         }),
         credentials: 'include', // required for allowing server to write cookies (for jwt)
       })
@@ -163,7 +169,7 @@ const AuthProvider = ({ children }) => {
         users = JSON.parse(users);
 
         users.forEach(user => {
-          if (user.username == username && user.password == password) {
+          if (user.username == username && bcrypt.compare(user.password, hashedPassword)) {
             // logging-in found user
             setUser(user);
             localStorage.setItem('logged_user', JSON.stringify(user)); // store user to restore login on refresh

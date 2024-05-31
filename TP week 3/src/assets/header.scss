@@ -9,7 +9,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
     transition: background-color linear .2s;
 
     & > *:first-child {
@@ -44,6 +43,7 @@ header {
                 display: inline-block;
                 width: 16px;
                 height: 16px;
+                margin-right: 4px;
             }
         }
     }
@@ -256,6 +256,9 @@ header {
             }
         }
     }
+}
+.theme-light header {
+    background-color: #fff;
 }
 .theme-dark header {
     background-color: rgb(42, 42, 54);

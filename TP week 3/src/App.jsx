@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { getItems } from './store/slice/storeSlice.js'
 import { restore } from './store/slice/cartSlice.js'
 import { AuthContext } from './context/AuthProvider.jsx'
+import { ThemeContext } from './context/ThemeProvider.jsx'
 
 import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx'
@@ -15,7 +16,6 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 
 import './App.css'
-import Test from './components/test/Test.jsx'
 
 
 function App() {
@@ -23,6 +23,8 @@ function App() {
   const location = useLocation();                     // to scroll to top of the page on navigate
   const dispatch = useDispatch();                     // to dispatch store & cart actions on load
   const { restore_login } = useContext(AuthContext);  // to dispatch user actions on load
+
+  const { darkTheme } = useContext(ThemeContext);
 
 
   /* on load */
@@ -52,7 +54,7 @@ function App() {
 
 
   return (
-    <>
+    <div id='main' className={ darkTheme ? 'theme-dark' : 'theme-light'}>
       <Header />
 
       {/* header has a fixed position (as opposed to sticky) to prevent the body from overflowing because of the minicart
@@ -67,11 +69,9 @@ function App() {
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
 
-        <Route path={'/test'} element={<Test />} />
-
         <Route path={'*'} element={<div>Not found!</div>} /> {/* too lazy to style it.. */}
       </Routes>
-    </>
+    </div>
   )
 }
 
